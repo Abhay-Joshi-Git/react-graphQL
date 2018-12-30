@@ -15,7 +15,6 @@ const Header = props => (
         <div className="sub-bar">
             <p>Search</p>
         </div>
-        <div>Cart</div>
     </StyledHeader>
 );
 
