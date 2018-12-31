@@ -7,7 +7,9 @@ const lightTheme = {
     color: "black",
     primaryBGColor: "teal",
     primaryColor: "teal",
-    borderColor: 'grey'
+    borderColor: "grey",
+    offWhite: "#808080",
+    lightgrey: "#808080"
 };
 
 const darkTheme = {
@@ -50,6 +52,7 @@ const StyledPage = Styled.div`
 const InnerContainer = Styled.div`
     max-width: 1000px;
     padding: 2rem;
+    margin: auto;
 `;
 
 const Page = props => (
