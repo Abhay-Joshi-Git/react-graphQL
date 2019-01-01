@@ -49,3 +49,4 @@ class Items extends Component {
 }
 
 export default Items;
+export { FETCH_ALL_ITEMS };

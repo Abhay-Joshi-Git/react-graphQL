@@ -17,12 +17,12 @@ const Form = styled.form`
   background: rgba(0, 0, 0, 0.02);
   border: 5px solid white;
   padding: 20px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5;
   font-weight: 600;
   label {
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   input,
   textarea,
@@ -42,7 +42,7 @@ const Form = styled.form`
     background: red;
     color: white;
     border: 0;
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 600;
     padding: 0.5rem 1.2rem;
   }

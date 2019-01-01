@@ -10,14 +10,14 @@ const Item = styled.div`
   img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: contain;
   }
   p {
     font-size: 12px;
-    line-height: 2;
+    line-height: 1;
     font-weight: 300;
     flex-grow: 1;
-    padding: 0 3rem;
+    padding: 0 0.5rem;
     font-size: 1.5rem;
   }
   .buttonList {
@@ -27,11 +27,13 @@ const Item = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 1px;
     background: ${props => props.theme.lightgrey};
-    & > * {
+    & * {
       background: white;
       border: 0;
       font-size: 1rem;
       padding: 1rem;
+      color: black;
+      font-family: 'radnika-n';
     }
   }
 `;

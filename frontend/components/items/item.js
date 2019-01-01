@@ -3,10 +3,10 @@ import ItemStyles from "../styles/ItemStyles";
 import Title from "../styles/Title";
 import Price from "../styles/PriceTag";
 import Link from "next/link";
+import DeleteItem from './DeleteItem';
 
 const Item = props => {
     const { item } = props;
-    console.log('item', item);
     return (
         <ItemStyles>
             {item.image && <img src={item.image} alt={item.title} />}
@@ -32,7 +32,7 @@ const Item = props => {
                 >
                     <a>Edit </a>
                 </Link>
-                <button />
+                <DeleteItem id={item.id}>Delete Item</DeleteItem>
                 <button />
             </div>
         </ItemStyles>
