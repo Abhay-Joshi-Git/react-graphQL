@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import Item from "./item";
 import styled from "styled-components";
+import Item from "./item";
+import Pagination from '../Pagination';
+import { perPage } from "../../config";
 
 const Center = styled.div`
     text-align: center;
@@ -17,8 +19,8 @@ const ItemsList = styled.div`
 `;
 
 const FETCH_ALL_ITEMS = gql`
-    query FETCH_ALL_ITEMS {
-        items {
+    query FETCH_ALL_ITEMS($skip: Int = 0, $first: Int = ${perPage}) {
+        items(first: $first, skip: $skip) {
             id
             title
             description
@@ -40,9 +42,16 @@ class Items extends Component {
     }
 
     render() {
+        const { page } = this.props;
         return (
             <Center>
-                <Query query={FETCH_ALL_ITEMS}>{this.renderItems}</Query>
+                <Pagination page={page}/>
+                <Query query={FETCH_ALL_ITEMS}
+                    variables={{
+                        skip: (page - 1) * perPage, 
+                    }}
+                >{this.renderItems}</Query>
+                <Pagination page={page}/>
             </Center>
         );
     }

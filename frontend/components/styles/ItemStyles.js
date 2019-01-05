@@ -34,6 +34,7 @@ const Item = styled.div`
       padding: 1rem;
       color: black;
       font-family: 'radnika-n';
+      cursor: pointer;
     }
   }
 `;

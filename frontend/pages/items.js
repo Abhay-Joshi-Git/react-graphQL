@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import Items from '../components/items/Items';
 
-class ItemsPage extends Component {
-    render() {
-        return (
-            <Items />
-        );
-    }
-}
+const ItemsPage = props => (
+    <Items page={+props.query.page || 1}/>
+);
 
 export default ItemsPage;
