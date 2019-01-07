@@ -1,38 +1,51 @@
-import Link from 'next/link';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-import NavStyles from '../../styles/NavStyles';
+import Link from "next/link";
+import Router from "next/router";
+import NProgress from "nprogress";
+import NavStyles from "../../styles/NavStyles";
+import LoggedInUser from "../../LoggedInUser";
+import UserAccount from './UserAccount';
 
 Router.onRouteChangeStart = () => {
-  NProgress.start();
+	NProgress.start();
 };
 
 Router.onRouteChangeComplete = () => {
-  NProgress.done();
+	NProgress.done();
 };
 
 Router.onRouteChangeError = () => {
-  NProgress.done();
-}
+	NProgress.done();
+};
 
 const Nav = () => (
-    <NavStyles>
-      <Link href="/items">
-        <a>Shop</a>
-      </Link>
-      <Link href="/sell">
-        <a>Sell</a>
-      </Link>
-      <Link href="/signup">
-        <a>Signup</a>
-      </Link>
-      <Link href="/orders">
-        <a>Orders</a>
-      </Link>
-      <Link href="/me">
-        <a>Account</a>
-      </Link>
-    </NavStyles>
+	<LoggedInUser>
+		{({ data }) => {
+			console.log("data", data);
+			const user = data.getLoggedInUser;
+			return (
+				<NavStyles>
+					<Link href="/items">
+						<a>Shop</a>
+					</Link>
+					{user ? (
+						<React.Fragment>
+							<Link href="/sell">
+								<a>Sell</a>
+							</Link>
+							<Link href="/orders">
+								<a>Orders</a>
+							</Link>
+							<UserAccount />
+						</React.Fragment>
+					) : (
+						<Link href="/signup">
+							<a>Sign In</a>
+						</Link>
+					)}
+				</NavStyles>
+			);
+		}}
+	</LoggedInUser>
 );
 
 export default Nav;
