@@ -20,7 +20,6 @@ Router.onRouteChangeError = () => {
 const Nav = () => (
 	<LoggedInUser>
 		{({ data }) => {
-			console.log("data", data);
 			const user = data.getLoggedInUser;
 			return (
 				<NavStyles>

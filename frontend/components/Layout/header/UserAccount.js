@@ -23,15 +23,11 @@ class UserAccount extends Component {
 	_handleMouseLeave = () => {
 		this.setFocus(false);
 	};
-	_handleClick = () => {
-		console.log("in clicked...");
-	};
 	render() {
 		return (
 			<SignOutWrapper
 				onMouseEnter={this._handleMouseEnter}
 				onMouseLeave={this._handleMouseLeave}
-				onClick={this._handleClick}
 			>
 				<Link href="/me">
 					<a>Account</a>
